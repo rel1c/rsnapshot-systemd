@@ -1,8 +1,8 @@
 [Unit]
-Description=rsnapshot INTERVAL backup
-Requires=rsnapshot-BEFORE.service
-After=rsnapshot-BEFORE.service
+Description=rsnapshot {NAME}{INTERVAL} backup
+Requires=rsnapshot-{NAME}{BEFORE}.service
+After=rsnapshot-{NAME}{BEFORE}.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/rsnapshot INTERVAL
+ExecStart=/usr/bin/rsnapshot {CONFIG}{INTERVAL}
