@@ -1,7 +1,7 @@
 [Unit]
-Description=rsnapshot {NAME}{INTERVAL} backup
-Requires=rsnapshot-{NAME}{BEFORE}.service
-After=rsnapshot-{NAME}{BEFORE}.service
+Description=rsnapshot{NAME} {INTERVAL} backup
+Requires=rsnapshot{NAME}-{BEFORE}.service
+After=rsnapshot{NAME}-{BEFORE}.service
 
 [Service]
 Type=oneshot

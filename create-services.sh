@@ -11,13 +11,13 @@ intervals=(
 )
 
 if [[ -n "$1" ]]; then
-    name="$1-"
+    name="-$1"
     config="-c /etc/rsnapshot-$1.conf "
 fi
 
 before=""
 for i in "${intervals[@]}"; do
-    fname="rsnapshot-$name$i.service"
+    fname="rsnapshot$name-$i.service"
     cp -v "$SERV_SKEL" "$fname"
     sed -i "s/{NAME}/$name/g" "$fname"
     sed -i "s|{CONFIG}|$config|g" "$fname"

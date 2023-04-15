@@ -1,10 +1,10 @@
 [Unit]
-Description=rsnapshot %i backup
+Description=rsnapshot %i backup timer
 
 [Timer]
 OnCalendar=%i
 Persistent=true
-Unit=rsnapshot-{NAME}%i.service
+Unit=rsnapshot{NAME}-%i.service
 
 [Install]
 WantedBy=timers.target
