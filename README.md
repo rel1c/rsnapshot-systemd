@@ -26,3 +26,13 @@ separate configuration files. It is possible to run rsnapshot with a specific
 configuration file, and sometimes I want to schedule multiple rsnapshot services
 with different configurations at different times, such as a local backup once
 every hour, but a remote backup once every day.
+
+## Usage
+
+Edit the `services.sh` configuration file with line entries for each service
+name and its intervals. The `default` entry will not add a name to rsnapshot
+service files or timers. Ensure the intervals match your rsnapshot configuration
+files.
+
+Run either the `create-services.sh` script or `make`. To remove all of the
+generate files run `make clean`.
