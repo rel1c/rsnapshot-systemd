@@ -34,12 +34,15 @@ function make_service_files() {
 
 function make_timer_file() {
     local fname
-    fname="rsnapshot@.timer"
     if [[ -n "$1" ]]; then
         fname="rsnapshot-$1@.timer"
+        cp -v "$TIME_SKEL" "$fname"
+        sed -i "s/{NAME}/-$1/g" "$fname"
+    else
+        fname="rsnapshot@.timer"
+        cp -v "$TIME_SKEL" "$fname"
+        sed -i "s/{NAME}//g" "$fname"
     fi
-    cp -v "$TIME_SKEL" "$fname"
-    sed -i "s/{NAME}/$name/g" "$fname"
 }
 
 function main() {
